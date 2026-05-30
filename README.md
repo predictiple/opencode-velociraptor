@@ -117,12 +117,20 @@ Velociraptor itself is licensed under AGPL, however use of the API does not fall
 
 ### In OpenCode conversations
 
-Once the plugin is loaded, the LLM can call these tools directly. Prompt it with something like:
+Once the plugin is loaded, OpenCode agents can call these tools directly. Prompt it with something like:
 
-- "Run `SELECT * FROM clients()` against the Velociraptor server"
-- "Fetch the file at `/downloads/C.bcb44702527bd9d0/F.D8DIIFD20NIAC/F.D8DIIFD20NIAC.zip`"
-- "Push this event to the `Server.Audit.Logs` queue: `{"Timestamp": 1, "Message": "hello"}`"
-- "Run the `Windows.System.Pslist` artifact on host `1oca1host`"
+> "Run `SELECT * FROM clients()` against the Velociraptor server"
+
+> "Fetch the file at `/downloads/C.bcb44702527bd9d0/F.D8DIIFD20NIAC/F.D8DIIFD20NIAC.zip`"
+
+> "Push this event to the `Server.Audit.Logs` queue: `{"Timestamp": 1, "Message": "hello"}`"
+
+> "Run the `Windows.System.Pslist` artifact on host `server`"
+
+![Run `SELECT * FROM clients()` against the Velociraptor
+server](query.png)
+
+Then generalize it by adding Skills that formulate your queries.
 
 ### As standalone CLI scripts
 
