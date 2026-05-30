@@ -1,6 +1,13 @@
-# Velociraptor TypeScript API
+# Velociraptor TypeScript Bindings
 
-TypeScript bindings for the [Velociraptor](https://docs.velociraptor.app/) DFIR server API, packaged as an [opencode](https://opencode.ai) plugin.
+TypeScript bindings for the
+[Velociraptor](https://docs.velociraptor.app/) DFIR server API,
+packaged as an [opencode](https://opencode.ai) plugin.
+
+> [!WARNING]: This is experimental and NOT an official Velociraptor
+>     project. Use at your own risk!
+
+---
 
 Velociraptor exposes a gRPC API with the following stable endpoints:
 
@@ -20,8 +27,8 @@ To read more about the Velociraptor API see the [Server Automation docs](https:/
 ## Installation
 
 ```bash
-git clone <repo-url>
-cd velociraptor
+git clone https://github.com/predictiple/opencode-velociraptor
+cd opencode-velociraptor
 bun install
 ```
 
