@@ -2,7 +2,7 @@
 
 TypeScript bindings for the
 [Velociraptor](https://docs.velociraptor.app/) DFIR server API,
-packaged as an [opencode](https://opencode.ai) plugin.
+packaged as an [OpenCode](https://opencode.ai) plugin.
 
 > [!WARNING]
 > This is experimental and NOT an official Velociraptor project. Use at your own risk!
@@ -37,12 +37,12 @@ The `postinstall` script automatically builds the TypeScript. The plugin is then
 ### Prerequisites
 
 - [Bun](https://bun.sh) runtime (v1.x+)
-- [opencode](https://opencode.ai)
+- [OpenCode](https://opencode.ai)
 - A Velociraptor API client config (see Configuration below)
 
-## opencode plugin
+## OpenCode plugin
 
-Registers 4 custom tools for use in opencode conversations:
+Registers 4 custom tools for use in OpenCode conversations:
 
 | Tool | Description |
 |---|---|
@@ -115,7 +115,7 @@ Velociraptor itself is licensed under AGPL, however use of the API does not fall
 
 ## Usage
 
-### In opencode conversations
+### In OpenCode conversations
 
 Once the plugin is loaded, the LLM can call these tools directly. Prompt it with something like:
 
