@@ -1,0 +1,26 @@
+{
+  "name": "velociraptor",
+  "version": "0.1.0",
+  "description": "Velociraptor DFIR API client — opencode plugin with custom tools",
+  "type": "module",
+  "main": "dist/plugin.js",
+  "scripts": {
+    "build": "bun run tsc",
+    "test": "bun test",
+    "postinstall": "bun run build",
+    "prepublishOnly": "bun run tsc"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.13.3",
+    "@opencode-ai/plugin": "^1.15.12",
+    "js-yaml": "^4.1.0",
+    "protobufjs": "^7.5.0",
+    "zod": "^3.24.4"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.15.3",
+    "typescript": "^5.8.3"
+  },
+  "license": "MIT"
+}

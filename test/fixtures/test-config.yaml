@@ -1,0 +1,14 @@
+ca_certificate: |
+  -----BEGIN CERTIFICATE-----
+  FIXTURECA
+  -----END CERTIFICATE-----
+client_cert: |
+  -----BEGIN CERTIFICATE-----
+  FIXTURECERT
+  -----END CERTIFICATE-----
+client_private_key: |
+  -----BEGIN RSA PRIVATE KEY-----
+  FIXTUREKEY
+  -----END RSA PRIVATE KEY-----
+api_connection_string: localhost:9999
+name: test-fixture
