@@ -4,8 +4,8 @@ TypeScript bindings for the
 [Velociraptor](https://docs.velociraptor.app/) DFIR server API,
 packaged as an [opencode](https://opencode.ai) plugin.
 
-> [!WARNING]: This is experimental and NOT an official Velociraptor
->     project. Use at your own risk!
+> [!WARNING]
+> This is experimental and NOT an official Velociraptor project. Use at your own risk!
 
 ---
 
