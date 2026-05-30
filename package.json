@@ -8,7 +8,9 @@
     "build": "bun run tsc",
     "test": "bun test",
     "postinstall": "bun run build",
-    "prepublishOnly": "bun run tsc"
+    "prepublishOnly": "bun run tsc",
+    "install:global": "bash scripts/install-global.sh",
+    "uninstall:global": "bash scripts/uninstall-global.sh"
   },
   "dependencies": {
     "@grpc/grpc-js": "^1.13.3",

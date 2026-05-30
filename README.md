@@ -34,6 +34,24 @@ bun install
 
 The `postinstall` script automatically builds the TypeScript. The plugin is then auto-discovered from `.opencode/plugins/velociraptor.ts` on next opencode restart — no config entry needed.
 
+#### Global install (optional)
+
+Use this if you want the plugin available from any project directory, not just this repo:
+
+```bash
+bun run install:global
+```
+
+This creates a `file:` dependency in `~/.config/opencode/package.json` and a wrapper at `~/.config/opencode/plugins/velociraptor.ts`. The `plugin` array in `opencode.json` is untouched — no conflicts with existing plugins.
+
+To remove:
+
+```bash
+bun run uninstall:global
+```
+
+Both scripts are idempotent and safe to re-run. Run `install:global` again after `bun run build` to pick up rebuild changes.
+
 ### Prerequisites
 
 - [Bun](https://bun.sh) runtime (v1.x+)
@@ -51,7 +69,7 @@ Registers 4 custom tools for use in OpenCode conversations:
 | `velociraptor_push_event` | Push events to artifact queues |
 | `velociraptor_run_artifact` | Find client by hostname, run artifact, poll for results |
 
-Auto-discovered from `.opencode/plugins/velociraptor.ts` — no config entry needed.
+Within this repo, the plugin is auto-discovered from `.opencode/plugins/velociraptor.ts`. To make it available from any directory, run `bun run install:global` (see [Global install](#global-install-optional)).
 
 ## Configuration
 
@@ -117,7 +135,7 @@ Velociraptor itself is licensed under AGPL, however use of the API does not fall
 
 ### In OpenCode conversations
 
-Once the plugin is loaded, OpenCode agents can call these tools directly. Prompt it with something like:
+Once the plugin is loaded (either via `.opencode/plugins/` inside this repo or globally via `install:global`), OpenCode agents can call these tools directly. Prompt it with something like:
 
 > "Run `SELECT * FROM clients()` against the Velociraptor server"
 
