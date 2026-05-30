@@ -82,7 +82,18 @@ Generate a config file from your Velociraptor server:
 
     velociraptor --config server.config.yaml config api_client --name opencode > api.config.yaml
 
-Then either `export VELOCIRAPTOR_API_FILE=/path/to/api.config.yaml` or paste its content into `VELOCIRAPTOR_API_CONFIG`.
+Then either:
+
+```sh
+export VELOCIRAPTOR_API_FILE="/path/to/api.config.yaml"
+```
+
+or
+
+```sh
+export VELOCIRAPTOR_API_CONFIG=$(cat /path/to/api.config.yaml)
+```
+
 
 ## Keeping the proto in sync
 
