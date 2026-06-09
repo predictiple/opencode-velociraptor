@@ -1,6 +1,8 @@
 import { type Plugin, tool } from "@opencode-ai/plugin";
 import { loadConfig, type VelociraptorConfig } from "./config.js";
 import { VelociraptorClient, type QueryEnv } from "./client.js";
+import * as fs from "node:fs/promises";
+import * as path from "node:path";
 
 interface ToolContext {
   directory: string;
@@ -71,18 +73,22 @@ export const velociraptorPlugin: Plugin = async () => {
       }),
 
       velociraptor_fetch: tool({
-        description: "Fetch a file from the Velociraptor filestore",
+        description: "Fetch a file from the Velociraptor filestore and write it to disk",
         args: {
           vfs_path: tool.schema.string().describe("VFS path components separated by / (e.g. /downloads/C.xxx/F.xxx/file.zip)"),
+          output_path: tool.schema.string().optional().describe("Path to write the file to (default: filename from VFS path in current directory)"),
           org_id: tool.schema.string().optional().describe("Org ID"),
           passphrase: tool.schema.string().optional().describe("Passphrase for encrypted private key"),
         },
-        async execute(args: { vfs_path: string; org_id?: string; passphrase?: string }, context: ToolContext) {
+        async execute(args: { vfs_path: string; output_path?: string; org_id?: string; passphrase?: string }, context: ToolContext) {
           const c = await ensureClient(args.passphrase);
           const components = args.vfs_path.split("/").filter(Boolean);
           try {
             const data = await c.fetchBuffer(components, args.org_id);
-            return `Fetched ${data.length} bytes (base64): ${data.toString("base64")}`;
+            const outPath = path.resolve(args.output_path || components[components.length - 1]);
+            await fs.mkdir(path.dirname(outPath), { recursive: true });
+            await fs.writeFile(outPath, data);
+            return `Wrote ${data.length} bytes to ${outPath}`;
           } catch (err: any) {
             return `Error: ${err.message || err}`;
           }

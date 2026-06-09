@@ -65,7 +65,7 @@ Registers 4 custom tools for use in OpenCode conversations:
 | Tool | Description |
 |---|---|
 | `velociraptor_query` | Run arbitrary VQL queries against the server |
-| `velociraptor_fetch` | Fetch files from the Velociraptor filestore |
+| `velociraptor_fetch` | Fetch files from the Velociraptor filestore and write them to disk |
 | `velociraptor_push_event` | Push events to artifact queues |
 | `velociraptor_run_artifact` | Find client by hostname, run artifact, poll for results |
 
@@ -150,7 +150,7 @@ Once the plugin is loaded (either via `.opencode/plugins/` inside this repo or g
 
 > "Run `SELECT * FROM clients()` against the Velociraptor server"
 
-> "Fetch the file at `/downloads/C.bcb44702527bd9d0/F.D8DIIFD20NIAC/F.D8DIIFD20NIAC.zip`"
+> "Fetch the file at `/downloads/C.bcb44702527bd9d0/F.D8DIIFD20NIAC/F.D8DIIFD20NIAC.zip` and save it to `/tmp/output.zip`"
 
 > "Push this event to the `Server.Audit.Logs` queue: `{"Timestamp": 1, "Message": "hello"}`"
 
